@@ -18,4 +18,3 @@ function openPaymentModal(publicKey, secretKey, amount, currency) {
   document.body.appendChild(iframe);
 }
 
-export default openPaymentModal;
