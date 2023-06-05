@@ -1,6 +1,7 @@
 const PaylodeCheckout = {
     records: undefined,
     onCloseCallback: undefined,
+    onSuccessCallback: undefined,
     setup: function (data) {
       // Create the payment modal iframe
       records = data;
@@ -9,12 +10,14 @@ const PaylodeCheckout = {
       // }
       //data.onClose();
       //data.callback();
+      this.onSuccessCallback = data.onSuccess;
       this.onCloseCallback = data.onClose;
       console.log(records);
       return this;
     },
     openIframe: function () {
       var onCloseCallbackStr = this.onCloseCallback ? this.onCloseCallback.toString() : '';
+      var onSuccessCallbackStr = this.onSuccessCallback ? this.onSuccessCallback.toString() : '';
   
   
       var iframe = document.createElement("iframe");
@@ -22,7 +25,7 @@ const PaylodeCheckout = {
         records.publicKey
       )}&amount=${encodeURIComponent(
         records.amount
-      )}&currency=${encodeURIComponent(records.currency)}&onCloseCallback=${encodeURIComponent(onCloseCallbackStr)}`;
+      )}&currency=${encodeURIComponent(records.currency)}&onCloseCallback=${encodeURIComponent(onCloseCallbackStr)}&onSuccessCallback=${encodeURIComponent(onSuccessCallbackStr)}`;
       iframe.style.border = "none";
       iframe.style.width = "100%";
       iframe.style.height = "100vh";
@@ -41,13 +44,13 @@ const PaylodeCheckout = {
     receiveMessage: function (event) {
       // Check if the message is from the iframe and contains the expected data
       if (
-        // event.data.source === "Widget-paylode" &&
-        // event.data.type === "closeModal" &&
-        typeof this.onCloseCallback === "function"
+     
+        typeof this.onCloseCallback === "function" ||
+        typeof this.onSuccessCallback === "function"
       ) {
         // Call the onClose callback function with the desired return values
         this.onCloseCallback(event.data.data);
-  
+        this.onSuccessCallback(event.data.data);
         // Remove the iframe from the body
         document.body.removeChild(event.source.frameElement);
       }
