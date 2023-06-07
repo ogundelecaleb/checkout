@@ -21,11 +21,11 @@ const PaylodeCheckout = {
   
   
       var iframe = document.createElement("iframe");
-      iframe.src = `http://94.229.79.27:3812/?publicKey=${encodeURIComponent(
+      iframe.src = `https://Widget-paylode.netlify.app?publicKey=${encodeURIComponent(
         records.publicKey
       )}&amount=${encodeURIComponent(
         records.amount
-      )}&currency=${encodeURIComponent(records.currency)}&onCloseCallback=${encodeURIComponent(onCloseCallbackStr)}&onSuccessCallback=${encodeURIComponent(onSuccessCallbackStr)}`;
+      )}&currency=${encodeURIComponent(records.currency)}&email=${encodeURIComponent(records.email)}&onCloseCallback=${encodeURIComponent(onCloseCallbackStr)}&onSuccessCallback=${encodeURIComponent(onSuccessCallbackStr)}`;
       iframe.style.border = "none";
       iframe.style.width = "100%";
       iframe.style.height = "100vh";
