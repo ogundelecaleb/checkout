@@ -32,6 +32,7 @@ const PaylodeCheckout = {
       iframe.style.position = "fixed";
       iframe.style.top = "0";
       iframe.style.left = "0";
+      iframe.onload= "...loading"
       iframe.style.zIndex = "9999";
   
       // Append the iframe to the body
