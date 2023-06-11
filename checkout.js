@@ -1,4 +1,4 @@
-import { encrypt, decrypt, compare } from "n-krypta";
+const { encrypt } = require('n-krypta');
 // decrypts the string
 
  // This prints out the decrypted string
