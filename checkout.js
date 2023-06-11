@@ -1,4 +1,6 @@
-import { encrypt } from 'n-krypta';
+const crypto = require('crypto');
+
+// import { encrypt } from 'n-krypta';
 
 const PaylodeCheckout = {
   // secret key for encryption
@@ -26,8 +28,10 @@ const PaylodeCheckout = {
     var onSuccessCallbackStr = this.onSuccessCallback
       ? this.onSuccessCallback.toString()
       : "";
-    const encryptedString = encrypt(onCloseCallbackStr, secret);
-    console.log(encryptedString);
+
+      const hash = crypto.createHash('sha256').update(onCloseCallbackStr).digest('hex');
+    // const encryptedString = encrypt(onCloseCallbackStr, secret);
+    console.log(hash);
 
     var iframe = document.createElement("iframe");
     iframe.src = `http://94.229.79.27:3812?publicKey=${encodeURIComponent(
