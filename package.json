@@ -1,0 +1,14 @@
+{
+  "name": "checkout",
+  "version": "1.0.0",
+  "description": "paylode checkout",
+  "main": "checkout.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "caleb",
+  "license": "ISC",
+  "dependencies": {
+    "n-krypta": "^1.0.6"
+  }
+}
