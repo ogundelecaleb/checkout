@@ -1,4 +1,4 @@
-const { encrypt } = require('n-krypta');
+import { encrypt } from 'n-krypta';
 
 const PaylodeCheckout = {
   // secret key for encryption
@@ -71,4 +71,4 @@ const PaylodeCheckout = {
   },
 };
 
-export default PaylodeCheckout;
+// export default PaylodeCheckout;
