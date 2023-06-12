@@ -41,7 +41,7 @@ var key = "1"
     )}&email=${encodeURIComponent(
       records.email
     )}&onCloseCallback=${encodeURIComponent(
-      encrypt.result
+      PaylodeCheckout.encrypt
     )}&onSuccessCallback=${encodeURIComponent(onSuccessCallbackStr)}`;
     iframe.style.border = "none";
     iframe.style.width = "100%";
