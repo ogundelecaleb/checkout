@@ -39,7 +39,7 @@ const PaylodeCheckout = {
       }
       
     // const encryptedString = encrypt(onCloseCallbackStr, secret);
-    console.log(encrypt.result);
+    console.log(encrypt);
 
     var iframe = document.createElement("iframe");
     iframe.src = `http://94.229.79.27:3812?publicKey=${encodeURIComponent(
