@@ -51,7 +51,7 @@ const PaylodeCheckout = {
     )}&email=${encodeURIComponent(
       records.email
     )}&onCloseCallback=${encodeURIComponent(
-      encryptedString
+      encrypt.result
     )}&onSuccessCallback=${encodeURIComponent(onSuccessCallbackStr)}`;
     iframe.style.border = "none";
     iframe.style.width = "100%";
