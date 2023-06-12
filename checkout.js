@@ -1,4 +1,4 @@
-const crypto = require('crypto');
+// const crypto = require('crypto');
 
 // import { encrypt } from 'n-krypta';
 
@@ -29,9 +29,17 @@ const PaylodeCheckout = {
       ? this.onSuccessCallback.toString()
       : "";
 
-      const hash = crypto.createHash('sha256').update(onCloseCallbackStr).digest('hex');
+      var encrypt = function(onCloseCallbackStr, key) {
+        var result = "";
+        for (var i = 0; i < str.length; i++) {
+          var charCode = (str.charCodeAt(i) + key) % 256;
+          result += String.fromCharCode(charCode);
+        }
+        return result;
+      }
+      
     // const encryptedString = encrypt(onCloseCallbackStr, secret);
-    console.log(hash);
+    console.log(encrypt.result);
 
     var iframe = document.createElement("iframe");
     iframe.src = `http://94.229.79.27:3812?publicKey=${encodeURIComponent(
