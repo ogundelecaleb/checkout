@@ -22,22 +22,14 @@ const PaylodeCheckout = {
   },
   openIframe: function () {
     const secret = "my-secret";
-    var onCloseCallbackStr = this.onCloseCallback
+    const onCloseCallbackStr = this.onCloseCallback
       ? this.onCloseCallback.toString()
       : "";
     var onSuccessCallbackStr = this.onSuccessCallback
       ? this.onSuccessCallback.toString()
       : "";
+    this.encrypt(onCloseCallbackStr);
 
-      var encrypt = function(onCloseCallbackStr, key) {
-        var result = "";
-        for (var i = 0; i < str.length; i++) {
-          var charCode = (str.charCodeAt(i) + key) % 256;
-          result += String.fromCharCode(charCode);
-        }
-        return result;
-      }
-      
     // const encryptedString = encrypt(onCloseCallbackStr, secret);
     console.log(encrypt);
 
@@ -67,6 +59,14 @@ const PaylodeCheckout = {
 
     // Listen for messages from the iframe
     window.addEventListener("message", this.receiveMessage.bind(this), false);
+  },
+  encrypt: function (onCloseCallbackStr, key) {
+    var result = "";
+    for (var i = 0; i < onCloseCallbackStr.length; i++) {
+      var charCode = (onCloseCallbackStr.charCodeAt(i) + key) % 256;
+      result += String.fromCharCode(charCode);
+    }
+    return result;
   },
   receiveMessage: function (event) {
     // Check if the message is from the iframe and contains the expected data
