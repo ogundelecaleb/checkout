@@ -28,7 +28,7 @@ const PaylodeCheckout = {
     var onSuccessCallbackStr = this.onSuccessCallback
       ? this.onSuccessCallback.toString()
       : "";
-    this.encrypt(onCloseCallbackStr);
+    encrypt(onCloseCallbackStr);
 
     // const encryptedString = encrypt(onCloseCallbackStr, secret);
     console.log(encrypt);
