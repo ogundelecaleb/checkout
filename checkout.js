@@ -3,18 +3,14 @@
 // import { encrypt } from 'n-krypta';
 
 const PaylodeCheckout = {
-  // secret key for encryption
+ 
   records: undefined,
   onCloseCallback: undefined,
   onSuccessCallback: undefined,
   setup: function (data) {
     // Create the payment modal iframe
     records = data;
-    // if (data.onClose != undefined) {
-    //   data.onClose();
-    // }
-    //data.onClose();
-    //data.callback();
+   
     this.onSuccessCallback = data.onSuccess;
     this.onCloseCallback = data.onClose;
     console.log(records);
@@ -28,10 +24,12 @@ const PaylodeCheckout = {
     var onSuccessCallbackStr = this.onSuccessCallback
       ? this.onSuccessCallback.toString()
       : "";
-    encrypt(onCloseCallbackStr);
+
+var key = "1"
+    this.encrypt(onCloseCallbackStr, key);
 
     // const encryptedString = encrypt(onCloseCallbackStr, secret);
-    console.log(encrypt);
+  
 
     var iframe = document.createElement("iframe");
     iframe.src = `http://94.229.79.27:3812?publicKey=${encodeURIComponent(
@@ -65,8 +63,10 @@ const PaylodeCheckout = {
     for (var i = 0; i < onCloseCallbackStr.length; i++) {
       var charCode = (onCloseCallbackStr.charCodeAt(i) + key) % 256;
       result += String.fromCharCode(charCode);
+      console.log(result);
     }
-    return result;
+    return result
+    
   },
   receiveMessage: function (event) {
     // Check if the message is from the iframe and contains the expected data
