@@ -108,7 +108,7 @@ const PaylodeCheckout = {
       this.onCloseCallback(event.data.data);
       this.onSuccessCallback(event.data.data);
       // Remove the iframe from the body
-      document.body.removeChild(event.source.frameElement);
+      // document.body.removeChild(event.source.frameElement);
     }
   },
 };
