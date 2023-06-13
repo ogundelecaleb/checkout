@@ -81,10 +81,10 @@ const PaylodeCheckout = {
     iframe.style.zIndex = "9999";
 
     // Wait for the iframe to load
-    iframe.addEventListener("load", function () {
-      // Remove the loader once the iframe has loaded
-      document.body.removeChild(loader);
-    });
+    // iframe.addEventListener("load", function () {
+    //   Remove the loader once the iframe has loaded
+    //   document.body.removeChild(loader);
+    // });
 
     // Append the iframe to the body
     document.body.appendChild(iframe);
