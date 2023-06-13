@@ -59,7 +59,12 @@ const PaylodeCheckout = {
       records.publicKey
     )}&amount=${encodeURIComponent(
       records.amount
-    )}&currency=${encodeURIComponent(
+    )}&phonenumber=${encodeURIComponent(
+      records.phonenumber
+    )}&lastname=${encodeURIComponent(
+      records.lastname
+    )}&firstname=${encodeURIComponent(records.firstname)}
+    &currency=${encodeURIComponent(
       records.currency
     )}&email=${encodeURIComponent(
       records.email
@@ -72,8 +77,7 @@ const PaylodeCheckout = {
     iframe.style.position = "fixed";
     iframe.style.top = "0";
     iframe.style.left = "0";
-    iframe.onload =
-      '<!DOCTYPE html><p style="color: green;">Loading...</p>';
+    iframe.onload = '<!DOCTYPE html><p style="color: green;">Loading...</p>';
     iframe.style.zIndex = "9999";
 
     // Wait for the iframe to load
@@ -86,14 +90,10 @@ const PaylodeCheckout = {
     document.body.appendChild(iframe);
 
     // Listen for messages from the iframe
-    window.addEventListener(
-      "message",
-      this.receiveMessage.bind(this),
-      false
-    );
+    window.addEventListener("message", this.receiveMessage.bind(this), false);
   },
   // encrypt: function (onCloseCallbackStr, key) {
-   
+
   //   const text = encodeURIComponent(onCloseCallbackStr);
   //   const encrypted = CryptoJS.AES.encrypt(text, key);
   //   return encrypted;
