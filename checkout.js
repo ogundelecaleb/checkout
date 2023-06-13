@@ -1,4 +1,4 @@
-import * as CryptoJS from "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js";
+// import * as CryptoJS from "https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js";
 const PaylodeCheckout = {
   records: undefined,
   onCloseCallback: undefined,
@@ -21,8 +21,8 @@ const PaylodeCheckout = {
       ? this.onSuccessCallback.toString()
       : "";
 
-    var key = "1";
-    const encryptedCallbackUrl = this.encrypt(onCloseCallbackStr, key);
+    // var key = "1";
+    // const encryptedCallbackUrl = this.encrypt(onCloseCallbackStr, key);
 
     // const encryptedString = encrypt(onCloseCallbackStr, secret);
     // Create a loader element
@@ -55,7 +55,7 @@ const PaylodeCheckout = {
     document.body.appendChild(loader);
 
     var iframe = document.createElement("iframe");
-    iframe.src = `http://94.229.79.27:3812?publicKey=${encodeURIComponent(
+    iframe.src = `http://localhost:3000/?publicKey=${encodeURIComponent(
       records.publicKey
     )}&amount=${encodeURIComponent(
       records.amount
@@ -64,7 +64,7 @@ const PaylodeCheckout = {
     )}&email=${encodeURIComponent(
       records.email
     )}&onCloseCallback=${encodeURIComponent(
-      encryptedCallbackUrl
+      onCloseCallbackStr
     )}&onSuccessCallback=${encodeURIComponent(onSuccessCallbackStr)}`;
     iframe.style.border = "none";
     iframe.style.width = "100%";
@@ -92,12 +92,12 @@ const PaylodeCheckout = {
       false
     );
   },
-  encrypt: function (onCloseCallbackStr, key) {
+  // encrypt: function (onCloseCallbackStr, key) {
    
-    const text = encodeURIComponent(onCloseCallbackStr);
-    const encrypted = CryptoJS.AES.encrypt(text, key);
-    return encrypted;
-  },
+  //   const text = encodeURIComponent(onCloseCallbackStr);
+  //   const encrypted = CryptoJS.AES.encrypt(text, key);
+  //   return encrypted;
+  // },
   receiveMessage: function (event) {
     // Check if the message is from the iframe and contains the expected data
     if (
