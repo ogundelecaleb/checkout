@@ -46,7 +46,14 @@ const PaylodeCheckout = {
     spinner.style.borderRadius = "50%";
     spinner.style.width = "120px";
     spinner.style.height = "120px";
-    spinner.style.animation = "spin 2s linear infinite";
+    // spinner.style.animation = "spin 2s linear infinite";
+    spinner.style.background = `#000
+    url ${("https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif")} center
+    no-repeat`;
+
+   
+ 
+  
 
     // Append the spinner to the loader
     loader.appendChild(spinner);
@@ -81,10 +88,10 @@ const PaylodeCheckout = {
     iframe.style.zIndex = "9999";
 
     // Wait for the iframe to load
-    // iframe.addEventListener("load", function () {
-    //   Remove the loader once the iframe has loaded
-    //   document.body.removeChild(loader);
-    // });
+    iframe.addEventListener("load", function () {
+      // Remove the loader once the iframe has loaded
+      document.body.removeChild(loader);
+    });
 
     // Append the iframe to the body
     document.body.appendChild(iframe);
