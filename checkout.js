@@ -62,7 +62,7 @@ const PaylodeCheckout = {
     document.body.appendChild(loader);
 
     var iframe = document.createElement("iframe");
-    iframe.src = `http://94.229.79.27:3812/?publicKey=${encodeURIComponent(
+    iframe.src = `http://localhost:3001/?publicKey=${encodeURIComponent(
       records.publicKey
     )}&amount=${encodeURIComponent(
       records.amount
