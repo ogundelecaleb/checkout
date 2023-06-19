@@ -12,9 +12,10 @@ const PaylodeCheckout = {
     console.log(records);
     return this;
   },
-  closewidget: function (openIframe) {
-  console.log(openIframe.iframe);
-    // openIframe.iframe.style.width = "0";
+  closewidget: function () {
+const widgetIframe = document.querySelector(".iframeId")
+widgetIframe.style.display = "none";
+console.log(widgetIframe);
   },
   openIframe: function () {
     const secret = "my-secret";
@@ -63,9 +64,10 @@ const PaylodeCheckout = {
 
     // Append the loader to the body
     document.body.appendChild(loader);
+      
 
     var iframe = document.createElement("iframe");
-    iframe.setAttribute("id", "iframeId");
+    iframe.setAttribute("class", "iframeId");
     iframe.src = `http://localhost:3001/?publicKey=${encodeURIComponent(
       records.publicKey
     )}&amount=${encodeURIComponent(
