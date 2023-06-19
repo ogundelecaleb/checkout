@@ -12,8 +12,15 @@ const PaylodeCheckout = {
     console.log(records);
     return this;
   },
+  closewidget: function () {
+    var widgetIframe = document.getElementById("iframeId");
+    widgetIframe.style.width = "0";
+  },
   openIframe: function () {
     const secret = "my-secret";
+    const closewidgetString = this.closewidget
+      ? this.closewidget.toString()
+      : "";
     const onCloseCallbackStr = this.onCloseCallback
       ? this.onCloseCallback.toString()
       : "";
@@ -48,12 +55,8 @@ const PaylodeCheckout = {
     spinner.style.height = "120px";
     // spinner.style.animation = "spin 2s linear infinite";
     spinner.style.background = `#000
-    url ${("https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif")} center
+    url ${"https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif"} center
     no-repeat`;
-
-   
- 
-  
 
     // Append the spinner to the loader
     loader.appendChild(spinner);
@@ -78,7 +81,10 @@ const PaylodeCheckout = {
       records.email
     )}&onCloseCallback=${encodeURIComponent(
       onCloseCallbackStr
-    )}&onSuccessCallback=${encodeURIComponent(onSuccessCallbackStr)}`;
+    )}&onSuccessCallback=${encodeURIComponent(
+      onSuccessCallbackStr
+    )}&closewidget=${encodeURIComponent(closewidgetString)}`;
+    ;
     iframe.style.border = "none";
     iframe.style.width = "100%";
     iframe.style.height = "100vh";
@@ -100,6 +106,7 @@ const PaylodeCheckout = {
     // Listen for messages from the iframe
     window.addEventListener("message", this.receiveMessage.bind(this), false);
   },
+
   // encrypt: function (onCloseCallbackStr, key) {
 
   //   const text = encodeURIComponent(onCloseCallbackStr);
