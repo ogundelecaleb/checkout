@@ -13,7 +13,7 @@ const PaylodeCheckout = {
     return this;
   },
   closewidget: function (openIframe) {
-  console.log(openIframe);
+  console.log(openIframe.iframe);
     // openIframe.iframe.style.width = "0";
   },
   openIframe: function () {
