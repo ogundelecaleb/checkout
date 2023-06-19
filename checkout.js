@@ -84,7 +84,7 @@ const PaylodeCheckout = {
     iframe.style.position = "fixed";
     iframe.style.top = "0";
     iframe.style.left = "0";
-    iframe.onload = '<!DOCTYPE html><p style="color: green;">Loading...</p>';
+    // iframe.onload = '<!DOCTYPE html><p style="color: green;">Loading...</p>';
     iframe.style.zIndex = "9999";
 
     // Wait for the iframe to load
