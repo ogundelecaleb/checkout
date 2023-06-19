@@ -13,8 +13,8 @@ const PaylodeCheckout = {
     return this;
   },
   closewidget: function () {
-    var widgetIframe = document.getElementById("iframeId");
-    widgetIframe.style.width = "0";
+    // var widgetIframe = document.getElementById("iframeId");
+    iframe.style.width = "0";
   },
   openIframe: function () {
     const secret = "my-secret";
