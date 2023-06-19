@@ -12,7 +12,7 @@ const PaylodeCheckout = {
     console.log(records);
     return this;
   },
-  closewidget: function () {
+  closewidget: function (iframe) {
     // var widgetIframe = document.getElementById("iframeId");
     iframe.style.width = "0";
   },
@@ -99,7 +99,7 @@ const PaylodeCheckout = {
       // Remove the loader once the iframe has loaded
       document.body.removeChild(loader);
     });
-
+this.closewidget(iframe)
     // Append the iframe to the body
     document.body.appendChild(iframe);
 
