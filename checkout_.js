@@ -48,12 +48,8 @@ const PaylodeCheckout = {
     spinner.style.height = "120px";
     // spinner.style.animation = "spin 2s linear infinite";
     spinner.style.background = `#000
-    url ${("https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif")} center
-    no-repeat`;
-
-   
- 
-  
+      url ${"https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif"} center
+      no-repeat`;
 
     // Append the spinner to the loader
     loader.appendChild(spinner);
@@ -62,19 +58,8 @@ const PaylodeCheckout = {
     document.body.appendChild(loader);
 
     var iframe = document.createElement("iframe");
-    iframe.src = `http://localhost:3001/?publicKey=${encodeURIComponent(
-      records.publicKey
-    )}&amount=${encodeURIComponent(
-      records.amount
-    )}&phonenumber=${encodeURIComponent(
-      records.phonenumber
-    )}&lastname=${encodeURIComponent(
-      records.lastname
-    )}&firstname=${encodeURIComponent(records.firstname)}
-    &currency=${encodeURIComponent(
-      records.currency
-    )}&email=${encodeURIComponent(
-      records.email
+    iframe.src = `http://94.229.79.27:3812/?record=${encodeURIComponent(
+      records
     )}&onCloseCallback=${encodeURIComponent(
       onCloseCallbackStr
     )}&onSuccessCallback=${encodeURIComponent(onSuccessCallbackStr)}`;
