@@ -15,7 +15,7 @@ const PaylodeCheckout = {
   closewidget: function ({ openIframe }) {
     // const widgetIframe = document.querySelector(".iframeId")
     // widgetIframe.style.display = "none";
-    console.log("widget:", openIframe.iframe);
+    console.log("widget:", openIframe);
   },
   openIframe: function () {
     const secret = "my-secret";
