@@ -102,7 +102,7 @@ const PaylodeCheckout = {
     // Listen for messages from the iframe
     window.addEventListener("message", this.receiveMessage.bind(this), false);
   },
-  closewidget: function (openIframe) {
+  closewidget: function ({openIframe}) {
     // const widgetIframe = document.querySelector(".iframeId")
     // widgetIframe.style.display = "none";
     console.log("widget:", openIframe.spinner.className);
