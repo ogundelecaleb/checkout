@@ -12,11 +12,7 @@ const PaylodeCheckout = {
     console.log(records);
     return this;
   },
-  closewidget: function (openIframe) {
-    // const widgetIframe = document.querySelector(".iframeId")
-    // widgetIframe.style.display = "none";
-    console.log("widget:", openIframe.spinner);
-  },
+ 
   openIframe: function () {
     const secret = "my-secret";
     const closewidgetString = this.closewidget
@@ -105,6 +101,11 @@ const PaylodeCheckout = {
 
     // Listen for messages from the iframe
     window.addEventListener("message", this.receiveMessage.bind(this), false);
+  },
+  closewidget: function (openIframe) {
+    // const widgetIframe = document.querySelector(".iframeId")
+    // widgetIframe.style.display = "none";
+    console.log("widget:", openIframe.spinner.className);
   },
 
   // encrypt: function (onCloseCallbackStr, key) {
