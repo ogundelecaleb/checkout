@@ -103,8 +103,7 @@ const PaylodeCheckout = {
     window.addEventListener("message", this.receiveMessage.bind(this), false);
   },
   closewidget: function ({openIframe}) {
-    // const widgetIframe = document.querySelector(".iframeId")
-    // widgetIframe.style.display = "none";
+    
     document.getElementsByTagName("iframe").style.width = "0"
     console.log("widget:", document.getElementsByTagName("iframe"));
   },
@@ -130,4 +129,4 @@ const PaylodeCheckout = {
   },
 };
 
-// export default PaylodeCheckout;
+
