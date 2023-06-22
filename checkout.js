@@ -12,7 +12,7 @@ const PaylodeCheckout = {
     console.log(records);
     return this;
   },
-  closewidget: function ({ openIframe }) {
+  closewidget: function ( openIframe ) {
     // const widgetIframe = document.querySelector(".iframeId")
     // widgetIframe.style.display = "none";
     console.log("widget:", openIframe);
