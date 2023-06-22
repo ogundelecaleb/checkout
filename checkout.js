@@ -12,8 +12,16 @@ const PaylodeCheckout = {
     console.log(records);
     return this;
   },
+  closewidget: function ({ openIframe }) {
+    // const widgetIframe = document.querySelector(".iframeId")
+    // widgetIframe.style.display = "none";
+    console.log("widget:", openIframe);
+  },
   openIframe: function () {
     const secret = "my-secret";
+    const closewidgetString = this.closewidget
+      ? this.closewidget.toString()
+      : "";
     const onCloseCallbackStr = this.onCloseCallback
       ? this.onCloseCallback.toString()
       : "";
@@ -48,8 +56,8 @@ const PaylodeCheckout = {
     spinner.style.height = "120px";
     // spinner.style.animation = "spin 2s linear infinite";
     spinner.style.background = `#000
-      url ${"https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif"} center
-      no-repeat`;
+    url ${"https://media.giphy.com/media/8agqybiK5LW8qrG3vJ/giphy.gif"} center
+    no-repeat`;
 
     // Append the spinner to the loader
     loader.appendChild(spinner);
@@ -58,18 +66,32 @@ const PaylodeCheckout = {
     document.body.appendChild(loader);
 
     var iframe = document.createElement("iframe");
-    iframe.src = `http://94.229.79.27:3812/?record=${encodeURIComponent(
-      records
+    iframe.setAttribute("class", "iframeId");
+    iframe.src = `http://94.229.79.27:3812/?publicKey=${encodeURIComponent(
+      records.publicKey
+    )}&amount=${encodeURIComponent(
+      records.amount
+    )}&phonenumber=${encodeURIComponent(
+      records.phonenumber
+    )}&lastname=${encodeURIComponent(
+      records.lastname
+    )}&firstname=${encodeURIComponent(records.firstname)}
+    &currency=${encodeURIComponent(
+      records.currency
+    )}&email=${encodeURIComponent(
+      records.email
     )}&onCloseCallback=${encodeURIComponent(
       onCloseCallbackStr
-    )}&onSuccessCallback=${encodeURIComponent(onSuccessCallbackStr)}`;
+    )}&onSuccessCallback=${encodeURIComponent(
+      onSuccessCallbackStr
+    )}&closewidget=${encodeURIComponent(closewidgetString)}`;
     iframe.style.border = "none";
     iframe.style.width = "100%";
     iframe.style.height = "100vh";
     iframe.style.position = "fixed";
     iframe.style.top = "0";
     iframe.style.left = "0";
-    iframe.onload = '<!DOCTYPE html><p style="color: green;">Loading...</p>';
+    // iframe.onload = '<!DOCTYPE html><p style="color: green;">Loading...</p>';
     iframe.style.zIndex = "9999";
 
     // Wait for the iframe to load
@@ -77,13 +99,14 @@ const PaylodeCheckout = {
       // Remove the loader once the iframe has loaded
       document.body.removeChild(loader);
     });
-
+    // this.closewidget(iframe)
     // Append the iframe to the body
     document.body.appendChild(iframe);
 
     // Listen for messages from the iframe
     window.addEventListener("message", this.receiveMessage.bind(this), false);
   },
+
   // encrypt: function (onCloseCallbackStr, key) {
 
   //   const text = encodeURIComponent(onCloseCallbackStr);
