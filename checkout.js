@@ -105,7 +105,7 @@ const PaylodeCheckout = {
   closewidget: function ({openIframe}) {
     // const widgetIframe = document.querySelector(".iframeId")
     // widgetIframe.style.display = "none";
-    console.log("widget:", document.querySelector(".iframeId"));
+    console.log("widget:", document.querySelector(".iframeId").style.width);
   },
 
   // encrypt: function (onCloseCallbackStr, key) {
