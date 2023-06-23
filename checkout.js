@@ -67,6 +67,8 @@ const PaylodeCheckout = {
       records.publicKey
     )}&amount=${encodeURIComponent(
       records.amount
+    )}&redirectUrl=${encodeURIComponent(
+      records.redirectUrl
     )}&phonenumber=${encodeURIComponent(
       records.phonenumber
     )}&lastname=${encodeURIComponent(
