@@ -6,6 +6,8 @@ const PaylodeCheckout = {
   setup: function (data) {
     // Create the payment modal iframe
     records = data;
+    var origin = window.origin;
+    console.log("user:", origin);
 
     this.onSuccessCallback = data.onSuccess;
     this.onCloseCallback = data.onClose;
@@ -25,8 +27,7 @@ const PaylodeCheckout = {
       ? this.onSuccessCallback.toString()
       : "";
 
-    var origin = window.origin;
-    console.log("user:", origin);
+    
     // var key = "1";
     // const encryptedCallbackUrl = this.encrypt(onCloseCallbackStr, key);
 
