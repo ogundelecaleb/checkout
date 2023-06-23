@@ -12,7 +12,7 @@ const PaylodeCheckout = {
     console.log(records);
     return this;
   },
- 
+
   openIframe: function () {
     const secret = "my-secret";
     const closewidgetString = this.closewidget
@@ -24,7 +24,9 @@ const PaylodeCheckout = {
     var onSuccessCallbackStr = this.onSuccessCallback
       ? this.onSuccessCallback.toString()
       : "";
-console.log(window.origin)
+
+      var origin = window.origin 
+    console.log("user:", origin);
     // var key = "1";
     // const encryptedCallbackUrl = this.encrypt(onCloseCallbackStr, key);
 
@@ -104,9 +106,8 @@ console.log(window.origin)
     // Listen for messages from the iframe
     window.addEventListener("message", this.receiveMessage.bind(this), false);
   },
-  closewidget: function ({openIframe}) {
-    
-    document.getElementsByTagName("iframe").style.width = "0"
+  closewidget: function ({ openIframe }) {
+    document.getElementsByTagName("iframe").style.width = "0";
     console.log("widget:", document.getElementsByTagName("iframe"));
   },
 
@@ -130,5 +131,3 @@ console.log(window.origin)
     }
   },
 };
-
-
