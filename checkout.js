@@ -111,7 +111,7 @@ const PaylodeCheckout = {
     window.addEventListener("message", this.receiveMessage.bind(this), false);
   },
   closewidget: function ({ openIframe }) {
-    var iframeId = document.getElementsById("iframeId");
+    var iframeId = document.getElementById("iframeId");
 
     iframeId.parentNode.removeChild(iframeId);
 
