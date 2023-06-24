@@ -114,7 +114,7 @@ const PaylodeCheckout = {
     // var iframeId = document.getElementById("iframeId");
     console.log("checkoutWindow:", window);
 
-    console.log("checkoutDocument", document);
+    console.log("checkoutDocument", document.parentNode);
     // document.element.style.width = "0"
 
     // console.log("iframe:", iframeId);
