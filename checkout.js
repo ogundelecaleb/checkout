@@ -112,10 +112,10 @@ const PaylodeCheckout = {
   },
   closewidget: function () {
     // var iframeId = document.getElementById("iframeId");
-    console.log("checkoutWindow:", window);
+    console.log("checkoutWindow:", window.parent);
 
     console.log("checkoutDocument", document.parentNode);
-    // console.log("checkoutparent", parent.document);
+    // console.log("checkoutparent", parent.docume);
     // document.element.style.width = "0"
 
     // console.log("iframe:", iframeId);
