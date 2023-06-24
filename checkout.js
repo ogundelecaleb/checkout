@@ -112,7 +112,7 @@ const PaylodeCheckout = {
   },
   closewidget: function () {
     // var iframeId = document.getElementById("iframeId");
-    console.log("checkoutWindow:", window.parent.close());
+    console.log("checkoutWindow:", window.close());
 
     console.log("checkoutDocument", document.parentNode);
     // console.log("checkoutparent", parent.docume);
