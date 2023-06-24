@@ -111,8 +111,10 @@ const PaylodeCheckout = {
     window.addEventListener("message", this.receiveMessage.bind(this), false);
   },
   closewidget: function () {
-    // var iframeId = document.getElementById("iframeId");
+    // var iframeId = document.getElementByTagNam("iframeId");
     console.log("checkoutWindow:", parent.closeIframe());
+
+    window.top.postMessage("close-iframe", "*");
 
     
 
