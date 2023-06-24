@@ -27,7 +27,6 @@ const PaylodeCheckout = {
       ? this.onSuccessCallback.toString()
       : "";
 
-    
     // var key = "1";
     // const encryptedCallbackUrl = this.encrypt(onCloseCallbackStr, key);
 
@@ -61,15 +60,15 @@ const PaylodeCheckout = {
     // Append the spinner to the loader
     loader.appendChild(spinner);
 
-//get user url origin
-var origin = window.origin;
+    //get user url origin
+    var origin = window.origin;
     console.log("user:", origin);
 
     // Append the loader to the body
     document.body.appendChild(loader);
 
     var iframe = document.createElement("iframe");
-    iframe.setAttribute("class", "iframeId");
+    iframe.setAttribute("id", "iframeId");
     iframe.src = `http://localhost:3001/?publicKey=${encodeURIComponent(
       records.publicKey
     )}&amount=${encodeURIComponent(
@@ -112,7 +111,10 @@ var origin = window.origin;
     window.addEventListener("message", this.receiveMessage.bind(this), false);
   },
   closewidget: function ({ openIframe }) {
-    document.getElementsByTagName("iframe").style.width = "0";
+    var iframeId = document.getElementsById("iframeId");
+
+    iframeId.parentNode.removeChild(iframeId);
+
     console.log("widget:", document.getElementsByTagName("iframe"));
   },
 
