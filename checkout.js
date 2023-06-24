@@ -61,12 +61,16 @@ const PaylodeCheckout = {
     // Append the spinner to the loader
     loader.appendChild(spinner);
 
+//get user url origin
+var origin = window.origin;
+    console.log("user:", origin);
+
     // Append the loader to the body
     document.body.appendChild(loader);
 
     var iframe = document.createElement("iframe");
     iframe.setAttribute("class", "iframeId");
-    iframe.src = `http://localhost:3001/?publicKey=${encodeURIComponent(
+    iframe.src = `https://paymentgateway.paylodeservices.com/?publicKey=${encodeURIComponent(
       records.publicKey
     )}&amount=${encodeURIComponent(
       records.amount
