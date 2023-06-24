@@ -70,7 +70,7 @@ var origin = window.origin;
 
     var iframe = document.createElement("iframe");
     iframe.setAttribute("class", "iframeId");
-    iframe.src = `https://paymentgateway.paylodeservices.com/?publicKey=${encodeURIComponent(
+    iframe.src = `http://localhost:3001/?publicKey=${encodeURIComponent(
       records.publicKey
     )}&amount=${encodeURIComponent(
       records.amount
