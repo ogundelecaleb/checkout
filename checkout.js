@@ -90,7 +90,7 @@ const PaylodeCheckout = {
       onSuccessCallbackStr
     )}&closewidget=${encodeURIComponent(closewidgetString)}`;
     iframe.style.border = "none";
-    iframe.style.width = "100%";
+    iframe.style.width = "";
     iframe.style.height = "100vh";
     iframe.style.position = "fixed";
     iframe.style.top = "0";
@@ -112,7 +112,7 @@ const PaylodeCheckout = {
   },
   closewidget: function () {
     // var iframeId = document.getElementByTagNam("iframeId");
-    console.log("checkoutWindow:", window.location.reload());
+    // console.log("checkoutWindow:", window.location.reload());
 
     // window.top.postMessage("close-iframe", "*");
 
