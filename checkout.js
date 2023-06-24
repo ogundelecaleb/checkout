@@ -115,7 +115,7 @@ const PaylodeCheckout = {
 
     iframeId.parentNode.removeChild(iframeId);
 
-    console.log("widget:", document.getElementsByTagName("iframe"));
+    // console.log("widget:", document.getElementsByTagName("iframe"));
   },
 
   // encrypt: function (onCloseCallbackStr, key) {
