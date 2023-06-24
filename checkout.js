@@ -110,10 +110,12 @@ const PaylodeCheckout = {
     // Listen for messages from the iframe
     window.addEventListener("message", this.receiveMessage.bind(this), false);
   },
-  closewidget: function ({ openIframe }) {
+  closewidget: function () {
     // var iframeId = document.getElementById("iframeId");
+    console.log("checkoutWindow:", window);
 
-    document.element.style.width = "0"
+    console.log("checkoutDocument", document);
+    // document.element.style.width = "0"
 
     // console.log("iframe:", iframeId);
 
