@@ -90,7 +90,7 @@ const PaylodeCheckout = {
       onSuccessCallbackStr
     )}&closewidget=${encodeURIComponent(closewidgetString)}`;
     iframe.style.border = "none";
-    iframe.style.width = "";
+    iframe.style.width = "100%";
     iframe.style.height = "100vh";
     iframe.style.position = "fixed";
     iframe.style.top = "0";
