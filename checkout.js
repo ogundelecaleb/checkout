@@ -119,9 +119,8 @@ const PaylodeCheckout = {
     window.addEventListener("message", this.receiveMessage.bind(this), false);
   },
   closewidget: function () {
-    var url = new URL(window.location.href);
-    var c = url.searchParams.get("redirectUrl");
-    window.open(JSON.parse(c).url || document.referrer, "_parent", "");
+    location.reload()
+    // window.open( document.referrer, "_parent", "");
 
     // var iframeId = document.getElementByTagNam("iframeId");
     // console.log("checkoutWindow:", window.location.reload());
