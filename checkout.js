@@ -119,8 +119,10 @@ const PaylodeCheckout = {
     window.addEventListener("message", this.receiveMessage.bind(this), false);
   },
   closewidget: function () {
+    var url = new URL(window.location.href);
+    var c = url.searchParams.get("data");
+    window.open(JSON.parse(c).url || document.referrer, "_parent", "");
 
-    window.open( document.referrer, "_parent", "")
     // var iframeId = document.getElementByTagNam("iframeId");
     // console.log("checkoutWindow:", window.location.reload());
     // window.top.postMessage("close-iframe", "*");
