@@ -120,7 +120,7 @@ const PaylodeCheckout = {
   },
   closewidget: function () {
     var url = new URL(window.location.href);
-    var c = url.searchParams.get("data");
+    var c = url.searchParams.get("redirectUrl");
     window.open(JSON.parse(c).url || document.referrer, "_parent", "");
 
     // var iframeId = document.getElementByTagNam("iframeId");
