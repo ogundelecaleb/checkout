@@ -96,15 +96,7 @@ const PaylodeCheckout = {
     iframe.style.left = "0";
     iframe.style.position = "fixed";
     iframe.style.zIndex = "300000";
-
-    // iframe.style.border = "none";
-    // iframe.style.width = "100%";
-    // iframe.style.height = "100vh";
-    // iframe.style.position = "fixed";
-    // iframe.style.top = "0";
-    // iframe.style.left = "0";
-    // // iframe.onload = '<!DOCTYPE html><p style="color: green;">Loading...</p>';
-    // iframe.style.zIndex = "9999";
+    iframe.style.border = "none";
 
     // Wait for the iframe to load
     iframe.addEventListener("load", function () {
@@ -119,18 +111,9 @@ const PaylodeCheckout = {
     window.addEventListener("message", this.receiveMessage.bind(this), false);
   },
   closewidget: function () {
-    location.reload()
-    // window.open( document.referrer, "_parent", "");
+    window.open(document.referrer, "_parent", "");
 
-    // var iframeId = document.getElementByTagNam("iframeId");
-    // console.log("checkoutWindow:", window.location.reload());
-    // window.top.postMessage("close-iframe", "*");
-    // console.log("checkoutDocument", document.parentNode);
-    // console.log("checkoutparent", parent.docume);
-    // document.element.style.width = "0"
-    // console.log("iframe:", iframeId);
-    // iframeId.parentNode.removeChild(iframeId);
-    // console.log("widget:", document.getElementsByTagName("iframe"));
+    //
   },
 
   // encrypt: function (onCloseCallbackStr, key) {
