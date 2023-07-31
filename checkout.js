@@ -210,8 +210,6 @@ const PaylodeCheckout = {
 
     var iframe = document.createElement("iframe");
     iframe.setAttribute("id", "iframeId");
-        // iframe.src = `https://paymentgateway.paylodeservices.com/?publicKey=${encodeURIComponent(
-
     iframe.src = `http://94.229.79.27:3812/?publicKey=${encodeURIComponent(
       records.publicKey
     )}&amount=${encodeURIComponent(
